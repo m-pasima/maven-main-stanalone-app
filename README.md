@@ -17,7 +17,7 @@ ssh ec2-user@<your-ec2-public-ip>
 ### 2. Clone the repository
 
 ```bash
-git clone https://github.com/m-pasima/maven-stanalone-application.git
+git clone [https://github.com/m-pasima/maven-stanalone-application.git](https://github.com/m-pasima/maven-main-stanalone-app.git)
 cd maven-stanalone-application
 ```
 
