@@ -1,12 +1,15 @@
 
 
-
-### 📄  EC2 Implementation Steps
+### 📄 `README.md`
 
 ````markdown
-## 🚀 Run on Amazon EC2 (Red Hat) with Maven installed
+# 🚀 DevOps Academy Stanalone Application on Amazon EC2 (Red Hat)
 
-### 1. SSH into your EC2 instance
+This is a Spring Boot–based Java web application built with Maven, deployable on Amazon EC2 (Red Hat) and Docker.
+
+---
+
+## ✅ 1. SSH into your EC2 instance
 
 ```bash
 ssh ec2-user@<your-ec2-public-ip>
@@ -14,74 +17,112 @@ ssh ec2-user@<your-ec2-public-ip>
 
 ---
 
-### 2. Clone the repository
+## ✅ 2. Clone the repository
 
 ```bash
-git clone [https://github.com/m-pasima/maven-stanalone-application.git](https://github.com/m-pasima/maven-main-stanalone-app.git)
+git clone https://github.com/m-pasima/maven-stanalone-application.git
 cd maven-stanalone-application
 ```
 
 ---
 
-### 3. Build the project with Maven
+## ✅ 3. Build the project with Maven
 
 ```bash
 mvn clean package
 ```
 
-✅ This will generate:
+This will generate:
 
-* Plain JAR → `target/devops-standalone-app-1.0.0.jar`
-* Fat JAR → `target/devops-standalone-app-1.0.0-jar-with-dependencies.jar`
+* Spring Boot fat JAR → `target/devops-standalone-app-1.0.0.jar`
 
 ---
 
-### 4. Run the fat JAR (recommended)
+## ✅ 4. Run the application on EC2
 
 ```bash
-java -jar target/devops-standalone-app-1.0.0-jar-with-dependencies.jar
+java -jar target/devops-standalone-app-1.0.0.jar
 ```
 
-✅ Example output:
-
-```
-2025-05-04 16:11:47,254 [main] INFO  com.devopsacademy.App - 🚀 Welcome to DevOps Academy Standalone Application!
-2025-05-04 16:11:47,256 [main] INFO  com.devopsacademy.App - 👉 Hello, DevOps Engineer! Keep rocking DevOps!
-```
+✅ By default, the app runs on port **8080**.
 
 ---
 
-### 5. (Optional) Run the plain JAR with manual classpath
+## ✅ 5. Access the web app in your browser
 
-```bash
-java -cp target/devops-standalone-app-1.0.0.jar:~/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar com.devopsacademy.App
+```
+http://<your-ec2-public-ip>:8080/
 ```
 
-✅ On Linux (EC2), use `:` as the classpath separator.
+⚠ **IMPORTANT:** Ensure your EC2 Security Group allows inbound TCP traffic on port `8080`.
 
 ---
 
-### 6. (Optional) Run in Docker if installed
+## ✅ 6. (Optional) Run in Docker
+
+### a. Build Docker image
 
 ```bash
 docker build -t devops-standalone-app .
-docker run --rm devops-standalone-app
+```
+
+### b. Run Docker container
+
+```bash
+docker run -d -p 8080:8080 --name devops-app devops-standalone-app
+```
+
+### c. Check logs
+
+```bash
+docker logs devops-app
 ```
 
 ---
 
-### 🔥 Summary
+## ✅ 7. Manage Docker containers
 
-* 💥 SSH to EC2
-* 💥 Clone repo: `git clone https://github.com/m-pasima/maven-stanalone-application.git`
-* 💥 Build: `mvn clean package`
-* 💥 Run: `java -jar target/devops-standalone-app-1.0.0-jar-with-dependencies.jar`
+* List all containers:
+
+```bash
+docker ps -a
+```
+
+* Stop container:
+
+```bash
+docker stop devops-app
+```
+
+* Remove container:
+
+```bash
+docker rm devops-app
+```
+
+* Prune stopped containers:
+
+```bash
+docker container prune -f
+```
 
 ---
 
-Built with ❤️ for DevOps Academy.
+## 🔥 Summary
+
+✅ SSH to EC2
+✅ Clone → `git clone https://github.com/m-pasima/maven-stanalone-application.git`
+✅ Build → `mvn clean package`
+✅ Run → `java -jar target/devops-standalone-app-1.0.0.jar`
+✅ Access → `http://<your-ec2-public-ip>:8080/`
+✅ Docker → `docker build && docker run`
+
+---
+
+**Built with ❤️ for DevOps Academy**
 
 ```
+
 
 
 
