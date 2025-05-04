@@ -1,12 +1,4 @@
-Absolutely! 💥 Here’s your **clean, polished, production-ready `README.md`** — covering Maven, fat JAR, plain JAR, Docker (with build and run), and useful tips.
 
-This will make you look 🔥 on GitHub or in any team handoff!
-
----
-
-### 📄 Updated `README.md`
-
-````markdown
 # DevOps Academy Standalone App
 
 This is a sample Maven standalone Java application for DevOps Academy.
