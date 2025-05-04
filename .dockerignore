@@ -1,3 +1,6 @@
-target/
-.idea/
-.vscode/
+target/*
+!target/devops-standalone-app-1.0.0.jar
+.git
+.idea
+.vscode
+

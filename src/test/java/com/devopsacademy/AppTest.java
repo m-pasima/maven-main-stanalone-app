@@ -1,13 +1,15 @@
 package com.devopsacademy;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest {
+
     @Test
     public void testSayHello() {
-        App app = new App();
-        String result = app.sayHello("DevOps Engineer");
+        WebController controller = new WebController();
+        String result = controller.sayHello("DevOps Engineer");
         assertEquals("Hello, DevOps Engineer! Keep rocking DevOps!", result);
     }
 }
+
