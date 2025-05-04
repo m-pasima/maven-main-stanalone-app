@@ -20,7 +20,7 @@ ssh ec2-user@<your-ec2-public-ip>
 ## ✅ 2. Clone the repository
 
 ```bash
-git clone https://github.com/m-pasima/maven-stanalone-application.git
+git clone [https://github.com/m-pasima/maven-stanalone-application.git](https://github.com/m-pasima/maven-main-stanalone-app)
 cd maven-stanalone-application
 ```
 
@@ -111,7 +111,7 @@ docker container prune -f
 ## 🔥 Summary
 
 ✅ SSH to EC2
-✅ Clone → `git clone https://github.com/m-pasima/maven-stanalone-application.git`
+✅ Clone → `[git clone https://github.com/m-pasima/maven-stanalone-application.git](https://github.com/m-pasima/maven-main-stanalone-app)`
 ✅ Build → `mvn clean package`
 ✅ Run → `java -jar target/devops-standalone-app-1.0.0.jar`
 ✅ Access → `http://<your-ec2-public-ip>:8080/`
