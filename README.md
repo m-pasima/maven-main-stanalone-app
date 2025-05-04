@@ -1,36 +1,47 @@
 
-# DevOps Academy Standalone App
 
-This is a sample Maven standalone Java application for DevOps Academy.
 
-It demonstrates:
-✅ Maven build  
-✅ Fat JAR packaging  
-✅ Docker containerization  
-✅ Log4j logging
+### 📄  EC2 Implementation Steps
+
+````markdown
+## 🚀 Run on Amazon EC2 (Red Hat) with Maven installed
+
+### 1. SSH into your EC2 instance
+
+```bash
+ssh ec2-user@<your-ec2-public-ip>
+````
 
 ---
 
-## 🛠 Build with Maven
+### 2. Clone the repository
+
+```bash
+git clone https://github.com/m-pasima/maven-stanalone-application.git
+cd maven-stanalone-application
+```
+
+---
+
+### 3. Build the project with Maven
 
 ```bash
 mvn clean package
-````
+```
 
-This will generate:
+✅ This will generate:
 
-* **Plain JAR** → `target/devops-standalone-app-1.0.0.jar`
-* **Fat JAR (recommended)** → `target/devops-standalone-app-1.0.0-jar-with-dependencies.jar`
+* Plain JAR → `target/devops-standalone-app-1.0.0.jar`
+* Fat JAR → `target/devops-standalone-app-1.0.0-jar-with-dependencies.jar`
 
 ---
 
-## 🚀 Run Fat JAR (recommended)
+### 4. Run the fat JAR (recommended)
 
 ```bash
 java -jar target/devops-standalone-app-1.0.0-jar-with-dependencies.jar
 ```
 
-✅ Runs with all dependencies bundled
 ✅ Example output:
 
 ```
@@ -40,84 +51,31 @@ java -jar target/devops-standalone-app-1.0.0-jar-with-dependencies.jar
 
 ---
 
-## ⚙️ Run Plain JAR (with manual classpath)
+### 5. (Optional) Run the plain JAR with manual classpath
 
 ```bash
-java -cp target/devops-standalone-app-1.0.0.jar;~/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar com.devopsacademy.App
+java -cp target/devops-standalone-app-1.0.0.jar:~/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar com.devopsacademy.App
 ```
 
-✅ On Linux/macOS, use `:` instead of `;` in the `-cp` option.
+✅ On Linux (EC2), use `:` as the classpath separator.
 
 ---
 
-## 🐳 Run in Docker
-
-### 1. Build Docker image
+### 6. (Optional) Run in Docker if installed
 
 ```bash
 docker build -t devops-standalone-app .
-```
-
-✅ This builds the image from the local Dockerfile.
-
----
-
-### 2. Run Docker container
-
-```bash
 docker run --rm devops-standalone-app
 ```
 
-✅ Example output:
-
-```
-2025-05-04 16:11:47,254 [main] INFO  com.devopsacademy.App - 🚀 Welcome to DevOps Academy Standalone Application!
-```
-
 ---
 
-### 3. Run in background (optional)
+### 🔥 Summary
 
-```bash
-docker run -d --name devops-app devops-standalone-app
-docker logs -f devops-app
-docker stop devops-app
-```
-
----
-
-## 🔥 Useful Tips
-
-✅ Rebuild image when code or JAR changes:
-
-```bash
-docker build -t devops-standalone-app .
-```
-
-✅ Clean up Docker resources:
-
-```bash
-docker ps -a         # List containers
-docker rm <id>       # Remove container
-docker images        # List images
-docker rmi <image>  # Remove image
-```
-
-✅ Add a `.dockerignore` to avoid copying `target/` into the image:
-
-```
-target/
-.idea/
-.vscode/
-```
-
----
-
-## ✨ Summary
-
-* 💥 `mvn clean package` → build JARs
-* 💥 `java -jar ...-jar-with-dependencies.jar` → run locally
-* 💥 `docker build && docker run` → run in a container
+* 💥 SSH to EC2
+* 💥 Clone repo: `git clone https://github.com/m-pasima/maven-stanalone-application.git`
+* 💥 Build: `mvn clean package`
+* 💥 Run: `java -jar target/devops-standalone-app-1.0.0-jar-with-dependencies.jar`
 
 ---
 
@@ -125,7 +83,6 @@ Built with ❤️ for DevOps Academy.
 
 ```
 
----
 
 
 
